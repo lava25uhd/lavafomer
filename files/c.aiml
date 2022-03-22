@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+<category>
+<pattern>CAN WE TALK ABOUT COFFEE</pattern>
+<template>Do you like <set name="topic">coffee</set>?</template>
+</category>
+<topic name="coffee">
+
+<category>
+<pattern>I LIKE THE TASTE</pattern>
+<template>I love how coffee tastes.</template>
+</category>
+
+<category>
+<pattern>IT IS TOO BITTER</pattern>
+<template>Maybe you should drink tea.</template>
+</category>
+
+</topic>
+</aiml>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+   <!-- Using Default category + Wildcards -->
+<category>
+  <pattern>*</pattern>
+   <template>Hello! <br/>
+	    My name is Lava , how can i hlep you ?
+ 	  </template>
+        </category>
+     
+      <!--Using var /Local Variable -->
+     
+<category>
+ <pattern>My name is  *</pattern>
+   <template>Hello , <set name="name"><star/></set></template>
+     </category>
+
+<category>
+ <pattern>Thank you  </pattern>
+  <template>Nice to meet you ,<get name="name"/>.
+   </template>
+    </category>
+     
+      <!-- Randomized Responses  + Wildcards  -->
+     
+<category>
+ <pattern>I am asking for a  * book </pattern>
+  <template>
+    <random>
+      <li>Can you tell more details about it?</li>
+      <li>Can you determine exactly what your request is? </li>
+      <li>Can you say that more clearly?OR tell the book's name</li>
+    </random>
+      </template>
+        </category>
+        
+          <!-- Using <that> tag  + Wildcards -->
+        
+<category>
+ <pattern>^ BOOK ^</pattern>
+  <template>Is there a particular book you want?</template>
+   </category>
+   
+<category>
+ <pattern>YES</pattern>
+  <that>Is there a particular book you want</that>
+   <template>Well, what kind of book do you want?</template>
+    </category>        
+
+            <!-- Using Sets and Maps  -->
+
+<category>
+ <pattern>Do you have<set>booktype</set></pattern>
+  <template>yes , we have this book ! <br/>
+   <map name="bname"><star/></map>   <star/>
+    </template>
+     </category>  
+ 
+             <!-- Using Conditionals/Case I -->
+
+<category>
+ <pattern>DO YOU HAVE *</pattern>
+  <template>
+   <think><set name="book"> <star/></set></think>
+    <condition name="book">
+<li value="East of Eden">Sure,"East of Eden" is a novel by American author and Nobel Prize winner John Steinbeck.</li>
+<li value="Island of the Blue Dolphins">Yes,"Island of the Blue Dolphins" won the Newbery Medal in 1961.</li>
+<li value="Of Mice and Men">t is available,"Of Mice and Men" is a novella written by John Steinbeck.</li>
+<li value="The Onion Field ">Sure,"The Onion Field" is a 1973 nonfiction book by Joseph Wambaugh.</li>
+<li value="Daughter of Fortune">Yes we have this ,"Daughter of Fortune" is a novel by Isabel Allende, and was chosen as an Oprah's Book Club selection .</li>
+<li value="Less Than Zero">yes,"Less Than Zero" is the debut novel of Bret Easton Ellis, published in 1985.</li>
+<li value="The Self-Taught Programmer ">AH.Good field,"The Self-Taught Programmer" this is a great book for any beginner interested in learning to program..</li>
+<li value="The Pragmatic Programmer ">Sure,"The Pragmatic Programmer" is good book to learn from Journeyman to Master.</li>
+<li value="WHEN BREATH BECOMES AIR ">Available,"WHEN BREATH BECOMES AIR" is a non-fiction autobiographical book written by American neurosurgeon Paul Kalanithi.</li>
+<li value="The Book of Basketball ">yes ,"The Book of Basketball" The NBA According to the Sports Guy is the second book by former ESPN columnist Bill Simmons.</li>
+...
+<li>That isn’t AVAILABLE!</li>
+</condition>
+ </template>
+   </category>
+    
+             <!-- Using  Wildcards -->
+<category>
+ <pattern>^ ORDER ^</pattern>
+  <template>Orders can be placed directly on the website</template>
+   </category>
+
+            <!-- Using <topic> tag + Predicates Variable  -->     
+
+<category>
+ <pattern>CAN I ASK FOR NOVEL BOOK</pattern>
+  <template>Do you like ,<set name="topic">novel</set>?</template>
+   </category>
+   
+      <topic name="novel">
+<category>
+ <pattern>YES , I LIKE TO READ A NOVEL </pattern>
+  <template>It's really useful kind of book.</template>
+    </category>
+
+<category>
+ <pattern>YES ,MY FAVORITE NOVELIST IS DISTOYEVSKY</pattern>
+  <template>He is nice ,But maybe you should to read Agatha Christie's books too.</template>
+   </category>
+    </topic>
+    
+<category>
+ <pattern>Okay,have a good time </pattern>
+  <template>thank you ,you too</template>
+    </category>
+    
+</aiml>
